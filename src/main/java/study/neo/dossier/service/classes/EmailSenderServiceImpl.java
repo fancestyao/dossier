@@ -94,7 +94,10 @@ public class EmailSenderServiceImpl implements EmailSenderService {
 
     private FileSystemResource createAttachmentDocument(Long applicationId) {
         log.info("Создаем вложенный документ");
-        String pathToAttachment = "src/main/resources/static/" + applicationId + ".txt";
+        String pathToDir = "src/main/resources/static";
+        File dir = new File(pathToDir);
+        dir.mkdir();
+        String pathToAttachment = pathToDir + "/" + applicationId + ".txt";
         File file = new File(pathToAttachment);
         FileSystemResource fileSystemResource = new FileSystemResource(file);
         try (FileWriter fr = new FileWriter(file);
