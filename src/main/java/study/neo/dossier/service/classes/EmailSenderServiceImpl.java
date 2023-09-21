@@ -105,7 +105,7 @@ public class EmailSenderServiceImpl implements EmailSenderService {
             log.info("Заполняем вложенный документ");
             br.write("Иммитирую вложенный документ для заявки с applicationId: " + applicationId);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.info("Возникла ошибка при заполнении текстового документа.");
         }
         return fileSystemResource;
     }
